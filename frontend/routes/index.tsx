@@ -1,6 +1,6 @@
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
-import { getCookies } from "std/http/cookie.ts";
+import { pocketbase } from "@/utils/pocketbase.ts";
 
 import Counter from "../islands/Counter.tsx";
 
@@ -10,20 +10,10 @@ interface Data {
 
 export const handler: Handlers = {
   GET(req, ctx) {
-    const cookies = getCookies(req.headers);
-    return ctx.render({ isAllowed: cookies.auth === "bar" });
+    const pb = pocketbase(req);
+    return ctx.render({ isAllowed: pb.authStore.isValid });
   },
 };
-
-function Login() {
-  return (
-    <form method="post" action="/api/login">
-      <input type="text" name="username" />
-      <input type="password" name="password" />
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
 
 export default function Home({ data }: PageProps<Data>) {
   return (
@@ -43,11 +33,11 @@ export default function Home({ data }: PageProps<Data>) {
         </p>
         <pre>{JSON.stringify(data)}</pre>
         {data.isAllowed ? (
-          <p>
-            You are logged in. <a href="/logout">Logout</a>
+          <p class="bg-indigo-400 text-white p-4 rounded">
+            You are logged in. <a href="/account/logout">Logout?</a>
           </p>
         ) : (
-          <Login />
+          <a href="/account/login">Login</a>
         )}
         <Counter start={3} />
       </div>

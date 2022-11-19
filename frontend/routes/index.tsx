@@ -5,13 +5,13 @@ import { pocketbase } from "@/utils/pocketbase.ts";
 import Counter from "../islands/Counter.tsx";
 
 interface Data {
-  isAllowed: boolean;
+  authenticated: boolean;
 }
 
 export const handler: Handlers = {
   GET(req, ctx) {
     const pb = pocketbase(req);
-    return ctx.render({ isAllowed: pb.authStore.isValid });
+    return ctx.render({ authenticated: pb.authStore.isValid });
   },
 };
 
@@ -32,7 +32,7 @@ export default function Home({ data }: PageProps<Data>) {
           ./routes/index.tsx file, and refresh.
         </p>
         <pre>{JSON.stringify(data)}</pre>
-        {data.isAllowed ? (
+        {data.authenticated ? (
           <p class="bg-indigo-400 text-white p-4 rounded">
             You are logged in. <a href="/account/logout">Logout?</a>
           </p>

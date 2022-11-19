@@ -18,6 +18,6 @@ function setup_pocketbase() {
 test -f ${POCKETBASE} || setup_pocketbase
 
 cd ${BACKEND_DIR}
-${POCKETBASE} serve --http 0.0.0.0:8090
+${POCKETBASE} serve --http 0.0.0.0:8090 --debug
 
 popd >> /dev/null

@@ -1,27 +1,32 @@
 import { Handlers } from "$fresh/server.ts";
-import { setCookie } from "std/http/cookie.ts";
+import PocketBase from "pocketbase";
 
 export const handler: Handlers = {
   async POST(req) {
-    const url = new URL(req.url);
+    // const url = new URL(req.url);
     const form = await req.formData();
 
-    if (form.get("username") !== "deno" || form.get("password") !== "land") {
-      return new Response(null, { status: 403 });
+    const pb = new PocketBase("http://127.0.0.1:8090");
+
+    pb.authStore.loadFromCookie(req.headers.get("cookie") as string);
+    console.log(pb.authStore.model);
+
+    if (pb.authStore.isValid) {
+      return new Response("you are already logged in", {
+        status: 200,
+      });
     }
 
+    await pb
+      .collection("users")
+      .authWithPassword(
+        form.get("username") as string,
+        form.get("password") as string
+      );
     const headers = new Headers();
-    setCookie(headers, {
-      name: "auth",
-      value: "bar",
-      maxAge: 120,
-      sameSite: "Lax",
-      // Commented coz it doesn't work with Github Codespaces.
-      //   domain: url.hostname,
-      path: "/",
-      secure: true,
-    });
+    headers.set("set-cookie", pb.authStore.exportToCookie());
     headers.set("location", "/");
+
     return new Response(null, { status: 303, headers });
   },
 };

@@ -5,6 +5,6 @@ readonly DATA_DIR=${SCRIPT_DIR}/pb_data
 
 mkdir -p ${DATA_DIR}
 docker run \
-    --rm -p 8090:8090 \
+    --rm -p 8080:8080 \
     -v ${DATA_DIR}:/pb_data \
-    -it $(docker build -q . --build-arg VERSION=0.8.0)
+    -it $(docker build -q .)

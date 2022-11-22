@@ -89,10 +89,10 @@
             },
             {
                 "id": "83inocbr",
-                "name": "price",
+                "name": "unit_price",
                 "type": "number",
                 "system": false,
-                "required": true,
+                "required": false,
                 "unique": false,
                 "options": {
                     "min": 0,
@@ -101,13 +101,25 @@
             },
             {
                 "id": "ab97ryss",
-                "name": "cogs",
+                "name": "intrinsic_cogs",
                 "type": "number",
                 "system": false,
-                "required": true,
+                "required": false,
                 "unique": false,
                 "options": {
-                    "min": 0,
+                    "min": null,
+                    "max": null
+                }
+            },
+            {
+                "id": "zoed98mw",
+                "name": "stocks",
+                "type": "number",
+                "system": false,
+                "required": false,
+                "unique": false,
+                "options": {
+                    "min": null,
                     "max": null
                 }
             },
@@ -132,12 +144,32 @@
                 "required": false,
                 "unique": false,
                 "options": {}
+            },
+            {
+                "id": "2buwzeya",
+                "name": "primary_image",
+                "type": "file",
+                "system": false,
+                "required": false,
+                "unique": false,
+                "options": {
+                    "maxSelect": 1,
+                    "maxSize": 5242880,
+                    "mimeTypes": [
+                        "image/jpg",
+                        "image/jpeg",
+                        "image/png",
+                        "image/svg+xml",
+                        "image/gif"
+                    ],
+                    "thumbs": []
+                }
             }
         ],
-        "listRule": null,
-        "viewRule": null,
-        "createRule": null,
-        "updateRule": null,
+        "listRule": "@request.auth.id != \"\"",
+        "viewRule": "@request.auth.id != \"\"",
+        "createRule": "@request.auth.id != \"\"",
+        "updateRule": "@request.auth.id != \"\"",
         "deleteRule": null,
         "options": {}
     },
@@ -159,12 +191,21 @@
                     "max": null,
                     "pattern": ""
                 }
+            },
+            {
+                "id": "3rgcmfht",
+                "name": "props",
+                "type": "json",
+                "system": false,
+                "required": false,
+                "unique": false,
+                "options": {}
             }
         ],
-        "listRule": null,
-        "viewRule": null,
-        "createRule": null,
-        "updateRule": null,
+        "listRule": "@request.auth.id != \"\"",
+        "viewRule": "@request.auth.id != \"\"",
+        "createRule": "@request.auth.id != \"\"",
+        "updateRule": "@request.auth.id != \"\"",
         "deleteRule": null,
         "options": {}
     },
@@ -211,12 +252,45 @@
                     "min": 0,
                     "max": null
                 }
+            },
+            {
+                "id": "q9jpbhi5",
+                "name": "unit_price",
+                "type": "number",
+                "system": false,
+                "required": false,
+                "unique": false,
+                "options": {
+                    "min": null,
+                    "max": null
+                }
+            },
+            {
+                "id": "83wbtubz",
+                "name": "total_paid",
+                "type": "number",
+                "system": false,
+                "required": false,
+                "unique": false,
+                "options": {
+                    "min": null,
+                    "max": null
+                }
+            },
+            {
+                "id": "dbmx4fck",
+                "name": "props",
+                "type": "json",
+                "system": false,
+                "required": false,
+                "unique": false,
+                "options": {}
             }
         ],
-        "listRule": null,
-        "viewRule": null,
-        "createRule": null,
-        "updateRule": null,
+        "listRule": "@request.auth.id != \"\"",
+        "viewRule": "@request.auth.id != \"\"",
+        "createRule": "@request.auth.id != \"\"",
+        "updateRule": "@request.auth.id != \"\"",
         "deleteRule": null,
         "options": {}
     },

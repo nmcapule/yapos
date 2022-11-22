@@ -11,7 +11,11 @@ export default function PointOfSale(props: Props) {
     <button
       {...props}
       type="button"
-      class="bg-indigo-400 text-white rounded p-2 w-32 h-32 active:bg-indigo-600 focus:bg-indigo-500"
+      class={
+        (props.count > 0 ? "bg-indigo-600" : "bg-gray-400") +
+        " text-white rounded " +
+        "p-2 w-32 h-32 active:bg-indigo-600 focus:bg-indigo-500"
+      }
     >
       {props.item.label} - {props.count}
       {props.children}

@@ -18,7 +18,7 @@ export default function PointOfSale(props: Props) {
     );
   const totalPrice = (orders: Orders) =>
     props.items.reduce(
-      (total, item) => total + (orders[item.id] ?? 0) * item.price,
+      (total, item) => total + (orders[item.id] ?? 0) * item.unit_price,
       0
     );
   const reviewOrders = (e: Event, orders: Orders) => {
@@ -31,7 +31,7 @@ export default function PointOfSale(props: Props) {
           .map(
             (item) =>
               `  ${orders[item.id]}x ${item.label} : ₱${
-                item.price * orders[item.id]
+                item.unit_price * orders[item.id]
               }`
           )
           .join("\n")
@@ -45,7 +45,7 @@ export default function PointOfSale(props: Props) {
     <form
       method="post"
       action="/pos"
-      class="h-screen flex flex-col bg-gray-100 max-w-prose justify-between"
+      class="h-screen flex flex-col bg-gray-100 justify-between"
     >
       <div class="flex flex-wrap justify-center content-start gap-2 p-2">
         {props.items.map((item) => (

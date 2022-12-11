@@ -10,7 +10,8 @@ import * as $3 from "./routes/index.tsx";
 import * as $4 from "./routes/inventory/index.tsx";
 import * as $5 from "./routes/pos/index.tsx";
 import * as $6 from "./routes/pos/review.tsx";
-import * as $7 from "./routes/posx/index.tsx";
+import * as $7 from "./routes/pos/success.tsx";
+import * as $8 from "./routes/posx/index.tsx";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/PointOfSale.tsx";
 
@@ -23,7 +24,8 @@ const manifest = {
     "./routes/inventory/index.tsx": $4,
     "./routes/pos/index.tsx": $5,
     "./routes/pos/review.tsx": $6,
-    "./routes/posx/index.tsx": $7,
+    "./routes/pos/success.tsx": $7,
+    "./routes/posx/index.tsx": $8,
   },
   islands: {
     "./islands/Counter.tsx": $$0,

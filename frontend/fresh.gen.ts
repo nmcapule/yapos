@@ -9,9 +9,10 @@ import * as $2 from "./routes/account/logout.tsx";
 import * as $3 from "./routes/index.tsx";
 import * as $4 from "./routes/inventory/index.tsx";
 import * as $5 from "./routes/pos/index.tsx";
-import * as $6 from "./routes/pos/review.tsx";
-import * as $7 from "./routes/pos/success.tsx";
-import * as $8 from "./routes/posx/index.tsx";
+import * as $6 from "./routes/pos/orders.tsx";
+import * as $7 from "./routes/pos/review.tsx";
+import * as $8 from "./routes/pos/success.tsx";
+import * as $9 from "./routes/posx/index.tsx";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/PointOfSale.tsx";
 
@@ -23,9 +24,10 @@ const manifest = {
     "./routes/index.tsx": $3,
     "./routes/inventory/index.tsx": $4,
     "./routes/pos/index.tsx": $5,
-    "./routes/pos/review.tsx": $6,
-    "./routes/pos/success.tsx": $7,
-    "./routes/posx/index.tsx": $8,
+    "./routes/pos/orders.tsx": $6,
+    "./routes/pos/review.tsx": $7,
+    "./routes/pos/success.tsx": $8,
+    "./routes/posx/index.tsx": $9,
   },
   islands: {
     "./islands/Counter.tsx": $$0,

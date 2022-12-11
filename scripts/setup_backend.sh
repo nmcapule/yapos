@@ -5,7 +5,7 @@ pushd $(pwd) >> /dev/null
 readonly SCRIPT_DIR="$( cd "$( dirname "$0" )" && pwd )"
 readonly BACKEND_DIR=${SCRIPT_DIR}/../backend
 
-readonly REMOTEPKG=https://github.com/pocketbase/pocketbase/releases/download/v0.8.0/pocketbase_0.8.0_linux_amd64.zip
+readonly REMOTEPKG=https://github.com/pocketbase/pocketbase/releases/download/v0.9.2/pocketbase_0.9.2_linux_amd64.zip
 readonly LOCALPKG=${BACKEND_DIR}/pocketbase.zip
 readonly POCKETBASE=${BACKEND_DIR}/pocketbase
 
